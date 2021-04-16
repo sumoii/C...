@@ -1,1 +1,664 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#include<math.h>
+/*3.11.2
+int main()
+{
+	int a = 66;
+	printf("%c", a);
+	return 0;
+}*/
+/*3.11.3
+int main()
+{
+	printf("\aStartled,\n");
+	printf("\"By the Great Pumkin, what was thar!\"");
+	return 0;
+}
+*/
+/*3.11.4
+int main(void)
+{
+	float a = 64.25;
+	printf("Enter a floating-point value;");
+	printf("%.2f\n", a);
+	printf("fixed-piont notation: %f\n", a);
+	printf("exponential notation: %e\n", a);
+	printf("p natation: %.2a\n", a);
+	return 0;
+}
+*/
+/*3.11.5
+int main(void)
+{
+	int num;
+	printf("please input your age:\n");
+	scanf("%d", &num);
+	printf("%e", 3.156e7 * num);
+	return 0;
 
+}
+*/
+/*3.11.6
+int main(void)
+{
+	int num;
+	printf("please input the number of water:");
+	scanf("%d", &num);
+	printf("the number of water is %e fenzzi." ,(num * 950) / 3.0e-23);
+	return 0;
+
+}
+*/
+/*3.11.7
+int main(void)
+{
+	float a;
+	scanf("%f", &a);
+	printf("%f", a / 2.54);
+	return 0;
+}
+*/
+/*3.11.8
+int main(void)
+{
+	float a;
+	scanf("%f", &a);
+	printf("%fb\n", 2*a);
+	printf("%fg\n", 8 * 2 * a);
+	printf("%ft\n", 2 * 8 * 2 * a);
+	printf("%fc\n", 3 * 2 * 8 * 2 * a);
+	return 0;
+
+}
+*/
+/*
+#include<stdio.h>
+#define PAGES 336
+#define WORDS 65618
+int main(void)
+{
+	short num = PAGES;
+	short munm = -PAGES;
+	printf("num as short and unsigned short : %hd %hu\n", num, num);
+	printf("-num as short and unsigned short : %hd %hu\n", munm, munm);
+	printf("num as int and char : %d %c\n", num, num);
+	printf("WORDS as int ,short ,and char:%d %hd %c\n", WORDS, WORDS,WORDS);
+	return 0;
+}
+*/
+/*
+{
+	float n1 = 3.0;
+	double n2 = 3.0;
+	long n3 = 2000000000;
+	long n4 = 1234567890;
+	printf("%.1e %.1e %.1e %.1e\n", n1, n2, n3, n4);
+	printf("%ld %ld\n", n3, n4);
+	printf("%ld %ld %ld %ld\n", n1, n2, n3, n4);
+	return 0;
+}
+*/
+/*
+{
+	int bph2o = 212;
+	int rv;
+	rv = printf("%d F is water's boiling point .\n", bph2o);
+	printf("The printf() function printed %d characters.\n",
+	rv);
+	return 0;
+
+}
+*/
+/*
+{
+int age;
+float assets;
+char pet[30];
+printf("Enter your age ,assets, and favorite pet.\n");
+scanf("%d %f", &age, &assets);
+scanf("%s", pet);
+printf("%d $%.2f %s\n", age, assets, pet);
+return 0;
+}
+*/
+/*
+#define BOOK "War and Peace"
+{
+	float cost = 12.99;
+	float precent = 80.0;
+	printf("This copy of \"%s\" sells for &%.2f\n", BOOK,cost);
+	printf("That is %.f%% of list.", precent);
+	return 0;
+
+}
+*/
+/*
+{
+	int D = 10000;
+	int two = 17;
+	float three= 232.346;
+	float four = 2.33e+002;
+	char  five[18] = "I need some money";
+	unsigned long six = 9888888;
+
+	printf("%d\n", D);
+	printf("%4x\n", two);
+	printf("%10f\n", three);
+	printf("%12f\n", four);
+	printf("%8.8s\n", five);
+	printf("%15lu\n", six);
+	return 0;
+
+}
+*/
+/*
+{
+	char firstname[20], secondname[20];
+	printf("Plaese input you first name and second name");
+	scanf("%s %s", firstname, secondname);
+	printf("%s,%s\n", secondname, firstname);
+	printf("\"%s%-20s\"\n", firstname, secondname);
+	printf("%*s%s", strlen(firstname) + 3, firstname, secondname);
+	return 0;
+}
+*/
+/*
+{
+float i;
+scanf("%f", &i);
+printf("The input is %.1f or %.1e\n", i, i);
+printf("The input is %.3f or %.3e\n", i, i);
+return 0;
+}
+*/
+/*
+{
+	float i;
+	char name[20];
+	printf("please input your name and high\n");
+	scanf("%s %f", name,&i);
+	printf("%s, you are %.3f feet tall",name, i / 100);
+	return 0;
+}
+*/
+/*
+{
+	float fast, file;
+	printf("Please input the fast and file size\n");
+	scanf("%f %f", &fast, &file);;
+	printf("At %.2f meegabits per second,a file of %.2f megabytes\n"\
+		"downloads in %.2f seconds.", fast, file, file *8 / fast);
+	return 0;
+}
+*/
+/*
+{
+	char first[20], second[20];
+	printf("Please input your name\n");
+	scanf("%s", first);
+	scanf("%s", second);
+	printf("%s %s\n", first, second);
+	printf("%*d %*d\n", strlen(first),  strlen(first), strlen(second), strlen(second));
+	printf("%s %s\n", first, second);
+	printf("%-*d %-*d\n", strlen(first), strlen(first), strlen(second), strlen(second));
+	return 0;
+}
+*/
+/*
+#define SQUARES 64 //棋盘的方格数
+
+{
+	const double CROP = 2E16; //世界小麦年产量
+	double current, total;
+	int count = 1;
+	printf("square  grains		total");
+	printf("fraction of \n");
+	printf("		added		grains");
+	printf("world total\n");
+	total = current = 1.0;
+	printf("%d %13.2e %12.2e %12.2e\n",count,current,
+		total,total/CROP);
+	while (count < SQUARES)
+	{
+		count = count + 1;
+		current = 2.0 * current;
+		total = total + current;
+		printf("%4d %13.2e %12.2e %12.2e\n", count, current,
+			total, total / CROP);
+	}
+	printf("That's all.\n");
+	return 0;
+}
+*/
+/*
+{
+	int n = 0;
+	size_t intsize;
+	intsize = sizeof(int);
+	printf("n= %d, has %zd bytes; all ints have %zd bytes.\n",
+		n, sizeof n, intsize);
+	return 0;
+
+}
+*/
+/*
+{
+	int t_ct;
+	double time, power_of_2;
+	int limit;
+	printf("Enter the number of terms you want:");
+	scanf("%d", &limit);
+	for (time = 0, power_of_2 = 1, t_ct = 1 ;t_ct <= limit; t_ct++, power_of_2*=2.0) {
+		time += 1.0 / power_of_2;
+		printf("time = %f when terms = %d.\n,",time,t_ct);
+	}
+	return 0;
+}
+*/
+/*
+{
+int number;
+	do
+		scanf("%d", &number);
+	while (number != 20);
+}
+*/
+/*
+{
+	const int ROWS = 6;
+	const int CHARS = 6;
+	int row;
+	char ch;
+	for (row = 0;row < ROWS;row++) {
+		for (ch = 'A';ch < 'A' + CHARS;ch++)
+			printf("%c", ch);
+		printf("\n");
+	}
+	return 0;
+}
+*/
+/*
+#define SIZE 10
+#define PAR 72
+{
+	int index, score[SIZE];
+	int sum = 0;
+	float average;
+	printf("Enter %d golf scores:\n.", SIZE);
+	for (index = 0; index < SIZE;index++) {
+		scanf("%d", &score[index]);
+		printf("\n");
+		sum += score[index];
+		printf(score[index]);
+	}
+
+	average = (float)sum / SIZE;
+	printf("SUM of socres = %d,average = %.2f\n", sum, average);
+	printf("That's a handicap of %.0f \n", average - PAR);
+	return 0;
+}
+*/
+/*int main(void) {
+	int i, j;
+	char list[26], k = 'a';
+	for (i = 0; i < 26; i++) {
+		list[i] = k + i;
+		printf("%c", list[i]);
+	}
+	return 0;
+}*/
+/*int main(void) {
+	int i, j;
+	for (i = 1;i < 6;i++) {
+		for (j=1;j<=i;j++)
+			printf("$");
+		printf("\n");
+	}
+	return 0;
+}*/
+/*int main(void) {
+	char lets[27] = "ABCDEFGHIJGLMNOPQRSTUVWXYZ";
+	int i, j, m;
+	for (i = 1;i < 7;i++) {
+		for (j = 1, m = 5;j <= i;j++, m--)
+			printf("%c", lets[m]);
+		printf("\n");
+	}
+}*/
+/*int main(void) {
+	char lets[27] = "ABCDEFGHIJGLMNOPQRSTUVWXYZ";
+	int i, j, m = 0;
+	for (i = 1;i < 7;i++) {
+		for (j = 1;j <= i;j++) {
+			printf("%c", lets[m]);
+			m++;
+		}
+		printf("\n");
+	}
+	return 0;
+}
+*/
+/*
+int main(void) {
+	char x, lets[27] = "ABCDEFGHIJGLMNOPQRSTUVWXYZ";
+	int i, j, k, z,m;
+	printf("Please ener a char");
+	scanf("%c", &x);
+	for (i = 0;i <= x - 65;i++) {
+		for (j = x - 65;j > i;j--)
+			printf(" ");
+		for (k = 0;k <= i;k++)
+			printf("%c", lets[k]);
+		for (z = 0,m=i-1;z < i;z++,m--) 
+			printf("%c", lets[m]);
+		printf("\n");
+	}
+}
+*/
+/*
+int main(void) {
+	int i, j, a, b;
+	printf("Enter top and low");
+	scanf("%d%d", &a, &b);
+	for (i = 1;i <= a - b;i++) {
+		printf("%5d%5d%5d", i, i * i, i * i * i);
+		printf("\n");
+	}
+	return 0;
+}
+*/
+/*int main(void) {
+	char list[26];
+	int i;
+	scanf("%s", list);
+	for (i = strlen(list);i >= 0;i--)
+		printf("%c", list[i]);
+	return 0;
+}*/
+/*float result(float a ,float b);
+int main(void) {
+	float a, b;
+	printf("Please enter two double\n");
+	while(scanf("%f%f",&a,&b))
+		printf("%lf\n",result(a,b));
+	return 0;
+}
+float result(float a,float b) {
+	return (a - b) / (a * b);
+}
+*/
+/*int main(void) {
+	int i,sum=0,a, b;
+	printf("Please enter upper and low\n");
+	scanf("%d%d", &a, &b);
+	while (b < a) {
+		for (i = b;i <= a;i++)
+			sum += i * i;
+		printf("the sum of the squares form %d to %d is %d\n",  b * b, a * a, sum);
+		printf("enter next number");
+		scanf("%d%d", &a,& b);
+	}
+	return 0;
+}*/
+/*int main(void) {
+	int list[8];
+	int i,j;
+	for (i = 0;i < 8;i++) 
+		scanf("%d", &list[i]);
+	for(j=7;j>=0;j--)
+		printf("%d ",list[j]);
+	return 0;
+}
+*/
+/*
+int main(void) {
+	int a=1, n;
+	float sum1=1.0, sum =1.0 ,i=1.0,j;
+	scanf("%d", &n);
+	for (j = 2.0;j <= n;j++) {
+		a = -1 * a;
+		sum += a * i / j;
+		sum1 += i / j;
+	}
+	printf("%f\n", sum);
+	printf("%f\n", sum1);
+	return 0;
+}
+*/
+/*int main(void) {
+	int i,j=0 ,a=1,list[8];
+	for (i = 0;i < 8;i++) {
+		a *= 2;
+		list[i] = a;
+	}
+	do
+	{
+		printf("%d ", list[j]);
+		j++;
+	}
+		while (j < 8);
+	return  0;
+}*/
+/* {
+	double a[8], b[8], sum;
+	int i;
+	for (i = 0, sum = 0.00;i < 8;i++) {
+		scanf("%lf", &a[i]);
+		printf("%8.2f", a[i]);
+		sum += a[i];
+		b[i] = sum;
+	}
+	printf("\n");
+	for (i = 0;i < 8;i++)
+		printf("%8.2f", b[i]);
+	return 0;
+}*/
+/*int main(void) {
+	char list[255];
+	int i;
+	scanf("%s", list);
+	for (i = strlen(list);i >= 0;i--)
+		printf("%c", list[i]);
+	return 0;
+}*/
+/*int main(void) {
+	float daphne=100.00, deirde=100.00 ;
+	int i = 0;
+	while (daphne >= deirde) {
+		daphne += 100.00 * 0.10;
+		deirde *= 1.05;
+		i++;
+	}
+	printf("%d %5.2f %5.2f", i, daphne, deirde );
+	return 0;
+}*/
+/*int main(void) {
+	float trisp = 100.00;
+	int i=0;
+	while (trisp > 0) {
+		trisp = trisp * 1.08 - 10.00;
+		i++;
+	}
+	printf("%d", i);
+	return 0;
+}*/
+/*int main(void) {
+	int  number = 5 ,i=1;
+	do
+	{
+		number = (number - i) * 2;
+		i++;
+		printf("%d%5d\n", i-1,number);
+	} while (number<150);
+	return 0;
+}
+*/
+/*int main(void) {
+	char ch;
+	while ((ch = getchar()) != '\n') {
+		if (isalpha(ch))
+			putchar(ch + 1);
+		else
+			putchar(ch);
+
+	}
+	putchar(ch);
+	return 0;
+}*/
+/*
+#define RATE1 0.13230		//使用360kwh的费率
+#define RATE2 0.15040		//360~468kwh的费率
+#define RATE3 0.30025		//468~720kwh的费率
+#define RATE4 0.34025		//超过720kwk的费率
+#define BRATE1 360.0
+#define BRATE2 468.0
+#define BRATE3 720.0
+#define BASE1 (RATE1*BRATE1)
+#define BASE2 (BASE1+(BRATE2-BRATE1)*RATE2)
+#define BASE3 (BASE2+(BRATE3-BRATE2)*RATE3)
+int main(void) {
+	double kwh;		//使用的kwh
+	double bill;	//电费
+	printf("Please enter the kwh used\n");
+	scanf("%lf", &kwh);
+	if (kwh <= BRATE1)
+		bill = RATE1 * kwh;
+	else if (kwh <= BRATE2)
+		bill = BASE1 + (kwh - BRATE1) * RATE2;
+	else if (kwh <= BRATE3)
+		bill = BASE2 + (kwh - BRATE2) * RATE3;
+	else
+		bill = BASE3 + (kwh - BRATE3) * RATE4;
+	printf("THE BILL OF %.1fKWH USED IS $%1.2f\n", kwh,bill);
+	return 0;
+}
+*/
+/*int main()
+{
+	int i, j, n;
+	printf("\nPlease Enter n:");
+	scanf("%d", &n);
+	for (i = 1;i <= n;i++)
+	{
+		for (j = 1;j <= n - i;j++)
+			printf(" ");
+		printf("*");
+		for (j = 1;j <= 2 * i - 3;j++)
+			printf(" ");
+		if (i != 1)
+			printf("*");
+		printf("\n");
+	}
+	return 0;
+}
+*/
+/*int main(void) {
+	int num;
+	for (num = 1;num <= 11;num++) {
+		if (num % 3 == 0)
+			putchar('$');
+		else
+			putchar('*');
+		putchar('#');
+		putchar('%');
+	}
+	putchar('\n');
+	return 0;
+}*/
+/*int main(void) {
+	int i = 0;
+	while (i < 3) {
+		switch (i++) {
+			case 0:printf("fat");
+			case 1:printf("hat");
+			case 2:printf("cat");
+			default:printf("Oh no!");
+		}
+		putchar('\n');
+	}
+	return 0;
+}*/
+/*int main(void) {
+	int age = 20;
+	while (age++ <= 65) {
+		if ((age % 20) == 0)
+			printf("You are %d. Here is a raise.\n", age);
+		if (age == 65)
+			printf("You are %d.Here is your gold watch.\n", age);
+	}
+	return 0;
+}
+*/
+/*int main(void) {
+	char ch;
+	while ((ch = getchar()) != '#')
+	{
+		if (ch == '\n')
+			continue;
+		printf("Step 1\n");
+		if (ch == 'c')
+			continue;
+		else if (ch == 'b')
+			break;
+		else if (ch == 'h')
+			goto laststep;
+		printf("Step 2\n");
+	laststep:printf("Step 3\n");
+	}
+		printf("Done\n");
+		return 0;
+}*/
+/*#define MAXN 10
+double f(int n, double a[], double x);*/
+/*int main()
+{
+	int n, i;
+	double a[MAXN], x;
+
+	scanf("%d %lf", &n, &x);
+	for (i = 0; i <= n; i++)
+		scanf("% lf", &a[i]);
+	printf("%.1f\n", f(n, a, x));
+	return 0;
+}
+double f(int n, double a[], double x) {
+	int i, j, b;
+	double sum;
+	for (i = 0, sum = 0.0;i <= n;i++) {
+		for (j = 0, b = 1;j <= i;j++) {
+			if (j == 0)
+				b = b;
+			else
+				b *= x;
+		}
+		sum += a[i] * b;
+	}
+	return (sum);
+}
+*/
+double funcos(double e, double x);
+
+int main()
+{
+	double e, x;
+
+	scanf("%lf %lf", &e, &x);
+	printf("cos(%.2f) = %.6f\n", x, funcos(e, x));
+
+	return 0;
+}
+double funcos(double e, double x) {
+	int i = 1, m = 1;
+	double s = 1.00, sum = 1.00, a = x * x, up = x * x;
+	while (fabs(s) > e){
+		m = m * 2 * i * (2 * i - 1);
+		s = (-1) * (up / m);
+		sum += s;
+		i++;
+		up *= a;
+	}
+	return(sum);
+}
